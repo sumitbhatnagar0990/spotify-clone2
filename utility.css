@@ -1,0 +1,97 @@
+ .border{
+    border: 2px solid red;
+    margin: 3px;
+ }
+  .flex{
+    display: flex;
+ }
+ .justify-center{
+    justify-content: center;
+ }
+ .items-center{
+    align-items: center;
+ }
+.bg-black{
+   background-color: black;
+   color: white;
+}
+.invert{
+   filter: invert(1);
+}
+.bg-grey{
+   background-color: #121212;
+}
+.rounded{
+   border-radius: 7px;
+}
+.m-1{
+   margin: 5px;
+}
+.p-1{
+   padding: 10px;
+}
+
+/* ===== Global defaults (Firefox & fallback) ===== */
+:root {
+  --sp-bg: #0b0d10;         /* app background */
+  --sp-track: #121418;      /* track color */
+  --sp-thumb: #1db954;      /* Spotify green */
+  --sp-thumb-2: #17a34a;    /* darker green for gradient */
+  --sp-thumb-hover: #22c55e;/* hover */
+}
+
+/* Firefox */
+* {
+  scrollbar-width: thin;                        /* auto | thin | none */
+  scrollbar-color: var(--sp-thumb) var(--sp-track); /* thumb track */
+}
+
+/* Optional: keep layout from shifting when scrollbars appear */
+html {
+  scrollbar-gutter: stable both-edges;
+}
+
+/* ===== WebKit (Chrome, Edge, Brave, Safari, Opera) ===== */
+*::-webkit-scrollbar {
+  width: 10px;              /* vertical */
+  height: 10px;             /* horizontal */
+  background: transparent;  /* avoid blocky bg */
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--sp-track);
+  border-radius: 999px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--sp-thumb), var(--sp-thumb-2));
+  border-radius: 999px;
+  border: 2px solid var(--sp-track);  /* creates a gap between thumb & track */
+  box-shadow: 0 0 0px 0 rgba(0,0,0,0); /* keeps Safari happy */
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--sp-thumb-hover), var(--sp-thumb));
+}
+
+/* Corner where two scrollbars meet (e.g., scrollable tables) */
+*::-webkit-scrollbar-corner {
+  background: var(--sp-track);
+}
+
+/* ===== Optional: class for specific scroll areas ===== */
+.scroll-area {
+  overflow: auto;
+  max-height: 100%;
+  background: var(--sp-bg);
+  overscroll-behavior: contain; /* prevent bounce chaining */
+}
+
+/* ===== Reduced motion: subtle hover without jumpy gradients ===== */
+@media (prefers-reduced-motion: reduce) {
+  *::-webkit-scrollbar-thumb,
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--sp-thumb);
+    transition: none !important;
+  }
+}
