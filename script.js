@@ -37,7 +37,9 @@ volumeSlider.addEventListener("input", (e) => {
 
 
  async function getSongs(){
-  let a = await fetch("songs/")
+  console.log("Fetching songs from", window.location.href);
+  let a = await fetch("./songs/");
+
 
 
   let response = await a.text();
