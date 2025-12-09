@@ -89,7 +89,7 @@ async function main() {
       </li>`;
   }
 
-  // ✅ FIXED PLAY ON CLICK (CASE + TRIM SAFE)
+  //  FIXED PLAY ON CLICK (CASE + TRIM SAFE)
   Array.from(document.querySelectorAll(".songList li")).forEach((item) => {
     item.addEventListener("click", () => {
       const songName = item.querySelector(".info div").innerText.trim().toLowerCase();
